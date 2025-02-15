@@ -69,4 +69,14 @@ function getRecommendation(e){
 const searchForm = document.getElementById('search');
 searchForm.addEventListener("submit", getRecommendation);
 
+const clearBtn = document.querySelector("#search button[type='reset'");
+clearBtn.addEventListener("click", x => {
+    const results = document.getElementById("searchResults");
+    while (results.firstChild) {
+        results.removeChild(results.firstChild);
+    }
+    results.classList.add("hide");
+    results.classList.remove("show");
+});
+
 
