@@ -1,5 +1,5 @@
 body {
-    background: green url(../images/flower-field-elephant.jpg) center/cover no-repeat fixed;
+    background: rgb(250, 248, 251) url(../images/flower-field-elephant.jpg) center/cover no-repeat fixed;
 }
 main, header, footer {
     padding: 10px 15px 20px;
@@ -8,7 +8,7 @@ main {
     background-color: rgba(255,255,255,.8);
 }
 header, footer {
-    background-image: linear-gradient(to right, palegoldenrod, transparent);
+    background-image: linear-gradient(to right, rgb(238, 232, 170), transparent);
 }
 header p {
     font-size: 32px;
@@ -20,7 +20,7 @@ header nav a {
     text-transform: uppercase;
     text-decoration: none;
     font-size: 18px;
-    color: green;
+    color: rgb(0, 128, 0);
 }
 header nav a:hover {
     font-weight: 600;
@@ -39,14 +39,33 @@ form#search input {
 #searchResults {
     width: 45%;
     height: auto;
-    background-color: red;
+    background-color: rgb(0, 128, 0);
     z-index: 99;
     position: absolute;
-    right: 9px;
+    right: 8px;
+    margin-top: -10px;
+    padding: 10px 15px;
 }
 #searchResults.hide {
     display: none;
 }
 #searchResults.show {
     display: inline;
+}
+#searchResults .result {
+    width: 100%;
+    margin-bottom: 25px;
+}
+.result .cityImg {
+    max-width: 100%;
+    height: auto;
+}
+.cityName {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 0 5px;
+}
+.cityDesc {
+    color: rgb(238, 232, 170);
+    margin: 5px 0;
 }
