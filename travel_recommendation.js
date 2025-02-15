@@ -7,28 +7,22 @@ function getRecommendation(e){
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        let dataResults = []
-        for (var dataObj in data){
-            dataResults.push(dataObj);
-        }
-        console.log(dataResults);
-
         // Pull input search text and normalize/validate
         // Ideally, I'd also remove any html in the search text here...
         let searchTextRaw = document.querySelector('form#search input').value.trim();
         let searchText = (searchTextRaw && searchTextRaw != "") ? searchTextRaw.toLowerCase() : emptySearchMsg;
-
+        let tempResults = []
+        for (var dataObj in data){
+            tempResults.push(dataObj);
+        }
         // Compare input text with object names
-        let isSearchTxtInResults = (dataResults.indexOf(searchText) != -1); 
-        /* This looks for EXACT searches only, but the text should still result in positive search
-        if the object key CONTAINS the search text...
-        */
-
-        // If text contains object name, show obj contents
-        // If not, say sorry try again
-        if (isSearchTxtInResults) {
+        let searchResults = tempResults.filter(objName => {return objName.includes(searchText)});
+        if (searchResults.length > 0) { // If text contains object name, show obj contents
             console.log("Getting warmer");
-        } else {
+            searchResults.forEach((item, i, arr) => {
+                console.log(data[item]);
+            });
+        } else { // If not, say sorry try again
             console.log("ice cold...");
         }
 
