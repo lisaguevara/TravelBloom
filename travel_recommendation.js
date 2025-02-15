@@ -9,11 +9,7 @@ function displayResults(result){
 }
 
 function createResultElems(result){
-    const resultsElem = document.getElementById("searchResults");
-    resultsElem.classList.remove("hide");
-    resultsElem.classList.add("show");
-    let divElem = document.createElement("div");
-    divElem.classList.add("result");
+    const divElem = createAndShowResultContainer();
 
     let nameElem = document.createElement("p");
     nameElem.classList.add("cityName");
@@ -30,12 +26,32 @@ function createResultElems(result){
     descElem.classList.add("cityDesc");
     descElem.textContent = result.description;
     divElem.append(descElem);
+}
 
+function createAndShowResultContainer(){
+    const resultsElem = document.getElementById("searchResults");
+    resultsElem.classList.remove("hide");
+    resultsElem.classList.add("show");
+    let divElem = document.createElement("div");
+    divElem.classList.add("result");
     resultsElem.append(divElem);
+    return divElem;
+}
+
+function removeAndHideResultContainer() {
+    const results = document.getElementById("searchResults");
+    while (results.firstChild) {
+        results.removeChild(results.firstChild);
+    }
+    results.classList.add("hide");
+    results.classList.remove("show");
 }
 
 function getRecommendation(e){
     e.preventDefault();
+    if (document.getElementById("searchResults").firstChild) {
+        removeAndHideResultContainer();
+    }
     const emptySearchMsg = "Empty...bad job!";
 
     let url = "./travel_recommendation_api.json";
@@ -57,7 +73,8 @@ function getRecommendation(e){
                 displayResults(data[item]);
             });
         } else { // If not, say sorry try again
-            console.log("ice cold...");
+            const resultContainer = createAndShowResultContainer();
+            resultContainer.append(document.createTextNode("No matching search results"));
         }
 
     })
@@ -70,13 +87,6 @@ const searchForm = document.getElementById('search');
 searchForm.addEventListener("submit", getRecommendation);
 
 const clearBtn = document.querySelector("#search button[type='reset'");
-clearBtn.addEventListener("click", x => {
-    const results = document.getElementById("searchResults");
-    while (results.firstChild) {
-        results.removeChild(results.firstChild);
-    }
-    results.classList.add("hide");
-    results.classList.remove("show");
-});
+clearBtn.addEventListener("click", removeAndHideResultContainer);
 
 
