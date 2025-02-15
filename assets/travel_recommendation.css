@@ -26,3 +26,13 @@ header nav a:hover {
     font-weight: 600;
     text-decoration: underline;
 }
+form#search {
+    float: right;
+    width: 40%;
+}
+.clearfix {
+    clear: both;
+}
+form#search input {
+    width: 100%;
+}
