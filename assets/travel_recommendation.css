@@ -36,3 +36,17 @@ form#search {
 form#search input {
     width: 100%;
 }
+#searchResults {
+    width: 45%;
+    height: auto;
+    background-color: red;
+    z-index: 99;
+    position: absolute;
+    right: 9px;
+}
+#searchResults.hide {
+    display: none;
+}
+#searchResults.show {
+    display: inline;
+}
