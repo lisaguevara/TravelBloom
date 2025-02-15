@@ -13,7 +13,6 @@ function createResultElems(result){
     resultsElem.classList.remove("hide");
     resultsElem.classList.add("show");
     let divElem = document.createElement("div");
-    divElem.id = result.id;
     divElem.classList.add("result");
 
     let nameElem = document.createElement("p");
