@@ -1,5 +1,5 @@
 body {
-    background: rgb(250, 248, 251) url(../images/flower-field-elephant.jpg) center/cover no-repeat fixed;
+    background: #faf8fb url(../images/flower-field-elephant.jpg) center/cover no-repeat fixed;
 }
 main, header, footer {
     padding: 10px 15px 20px;
@@ -8,7 +8,7 @@ main {
     background-color: rgba(255,255,255,.8);
 }
 header, footer {
-    background-image: linear-gradient(to right, rgb(238, 232, 170), transparent);
+    background-image: linear-gradient(to right, #eee8aa, transparent);
 }
 header p {
     font-size: 32px;
@@ -26,6 +26,9 @@ header nav a:hover {
     font-weight: 600;
     text-decoration: underline;
 }
+h1 {
+    font-size: 28pxs;
+}
 form#search {
     float: right;
     width: 40%;
@@ -39,7 +42,7 @@ form#search input {
 #searchResults {
     width: 45%;
     height: auto;
-    background-color: rgb(0, 128, 0);
+    background-color: #008000;
     z-index: 99;
     position: absolute;
     right: 8px;
@@ -67,6 +70,14 @@ form#search input {
     margin: 0 0 5px;
 }
 .cityDesc {
-    color: rgb(238, 232, 170);
+    color: #eee8aa;
     margin: 5px 0;
+}
+.employee p {
+    margin: 0 0px 25px;
+}
+p.empName {
+    font-weight: 600;
+    color: #008000;
+    margin-bottom: 5px;
 }
