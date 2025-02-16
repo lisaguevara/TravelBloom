@@ -81,3 +81,23 @@ p.empName {
     color: #008000;
     margin-bottom: 5px;
 }
+#contactUs {
+    border: 1px solid #008000;
+    padding: 15px;
+    width: 50%;
+}
+#contactUs label {
+    display: block;
+    margin: 10px 0 5px;
+}
+#contactUs input, #contactUs textarea {
+    width: 50%;
+}
+#contactUs textarea {
+    height: 12vh;
+    width: 100%;
+}
+#contactUs button {
+    margin-top: 15px;
+    padding: 5px 20px;
+}
